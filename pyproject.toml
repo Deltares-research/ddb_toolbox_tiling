@@ -3,7 +3,7 @@ requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "delftdashboard-tiling-toolbox"
+name = "delftdashboard_tiling_toolbox"
 description = "Delft Dashboard toolbox for generating web map tiles (index and topobathy) from model grids"
 readme = "README.md"
 authors = [
