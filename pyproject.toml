@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "delftdashboard-tiling-toolbox"
+description = "Delft Dashboard toolbox for generating web map tiles (index and topobathy) from model grids"
+readme = "README.md"
+authors = [
+    { name = "Maarten van Ormondt", email = "maarten.vanormondt@deltares.nl"},
+]
+license = { text = "MIT" }
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Hydrology",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "cht_tiling @ git+https://github.com/deltares-research/cht_tiling.git",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+tests = ["pytest", "pytest-cov"]
+
+[project.entry-points."delftdashboard.toolboxes"]
+tiling = "delftdashboard_tiling_toolbox"
+
+[tool.setuptools]
+zip-safe = true
+
+[tool.setuptools.dynamic]
+version = { attr = "delftdashboard_tiling_toolbox.__version__" }
+
+[tool.setuptools.packages.find]
+include = ["delftdashboard_tiling_toolbox*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.yml"]
+
+[tool.pytest.ini_options]
+addopts = "--cov delftdashboard_tiling_toolbox --cov-report xml"
+testpaths = ["tests"]
