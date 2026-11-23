@@ -17,7 +17,7 @@ from delftdashboard.operations import map
 def select(*args: Any) -> None:
     """Activate the index tiles tab and set model-specific zmin/zmax defaults."""
     model = app.active_model
-    if model is not None and model.name == "hurrywave_hmt":
+    if model is not None and model.name == "hurrywave":
         app.gui.setvar("tiling", "index_zmin", -99999.0)
         app.gui.setvar("tiling", "index_zmax", 0.0)
     else:
@@ -91,7 +91,7 @@ def generate_index_tiles(*args: Any) -> None:
         twmi.make()
         dlg.close()
 
-    elif model.name == "sfincs_hmt":
+    elif model.name == "sfincs":
         if not _has_grid(model.domain.quadtree_grid):
             app.gui.window.dialog_info("No model grid found. Please create a grid first.")
             return
@@ -110,7 +110,7 @@ def generate_index_tiles(*args: Any) -> None:
             return
         dlg.close()
 
-    elif model.name == "hurrywave_hmt":
+    elif model.name == "hurrywave":
         if not _has_grid(model.domain.quadtree_grid):
             app.gui.window.dialog_info("No model grid found. Please create a grid first.")
             return

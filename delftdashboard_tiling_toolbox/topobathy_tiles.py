@@ -24,7 +24,7 @@ def generate_topobathy_tiles(*args):
         app.gui.window.dialog_info("Please generate index tiles first !")
         return
 
-    if model.name == "sfincs_hmt":
+    if model.name == "sfincs":
         if not _has_grid(model.domain.quadtree_grid):
             app.gui.window.dialog_info(
                 "No model grid found. Please create a grid first."
